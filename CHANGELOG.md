@@ -10,6 +10,7 @@
 
 1. [19075](https://github.com/influxdata/influxdb/pull/19075): Add resource links to a stack's resources from public HTTP API list/read calls
 1. [19103](https://github.com/influxdata/influxdb/pull/19103): Enhance resource creation experience when limits are reached
+1. [18841](https://github.com/influxdata/influxdb/pull/18841): Limit query response sizes for queries built in QueryBuilder by requiring an aggregate window
 
 ### Bug Fixes
 
