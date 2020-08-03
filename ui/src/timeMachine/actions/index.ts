@@ -83,7 +83,6 @@ export type Action =
   | SetBinSizeAction
   | SetColorHexesAction
   | SetFillColumnsAction
-  // | SetMosaicFillColumnAction
   | SetSymbolColumnsAction
   | SetBinCountAction
   | SetHistogramPositionAction
@@ -545,6 +544,16 @@ export const setYColumn = (yColumn: string): SetYColumnAction => ({
   payload: {yColumn},
 })
 
+interface SetMosaicYColumnAction {
+  type: 'SET_Y_COLUMN'
+  payload: {yColumn: string[]}
+}
+
+export const setMosaicYColumn = (yColumn: string[]): SetMosaicYColumnAction => ({
+  type: 'SET_Y_COLUMN',
+  payload: {yColumn},
+})
+
 interface SetShadeBelowAction {
   type: 'SET_SHADE_BELOW'
   payload: {shadeBelow}
@@ -598,18 +607,6 @@ export const setFillColumns = (
   type: 'SET_FILL_COLUMNS',
   payload: {fillColumns},
 })
-
-// interface SetMosaicFillColumnAction {
-//   type: 'SET_MOSAIC_FILL_COLUMN'
-//   payload: {mosaicFillColumn: string}
-// }
-
-// export const setMosaicFillColumn = (
-//   mosaicFillColumn: string
-// ): SetMosaicFillColumnAction => ({
-//   type: 'SET_MOSAIC_FILL_COLUMN',
-//   payload: {mosaicFillColumn},
-// })
 
 interface SetSymbolColumnsAction {
   type: 'SET_SYMBOL_COLUMNS'

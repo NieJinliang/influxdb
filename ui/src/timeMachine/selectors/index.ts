@@ -84,7 +84,6 @@ export const getVisTable = (
 ): {table: Table; fluxGroupKeyUnion: string[]} => {
   const files = getActiveTimeMachine(state).queryResults.files || []
   const {table, fluxGroupKeyUnion} = getVisTableMemoized(files.join('\n\n'))
-
   return {table, fluxGroupKeyUnion}
 }
 
@@ -130,7 +129,7 @@ export const getYColumnSelection = (state: AppState): string => {
   return defaultYColumn(table, preferredYColumnKey)
 }
 
-export const getMosaicYColumnSelection = (state: AppState): string => {
+export const getMosaicYColumnSelection = (state: AppState): string[] => {
   const {table} = getVisTable(state)
   const preferredYColumnKey = get(
     getActiveTimeMachine(state),
@@ -182,10 +181,6 @@ export const getMosaicFillColumnsSelection = (state: AppState): string[] => {
     'view.properties.fillColumns'
   )
 
-  console.log('preference', preference)
-  console.log('valid columns in index.ts', validFillColumns)
-  console.log('column keys', table.columnKeys)
-
   if (preference === null) {
     for (const key of validFillColumns) {
       if (key.startsWith('_value')) {
@@ -197,12 +192,10 @@ export const getMosaicFillColumnsSelection = (state: AppState): string[] => {
     }
   }
 
-  const {fluxGroupKeyUnion} = getVisTable(state)
-
   return getFillColumnsSelectionMemoized(
     validFillColumns,
     preference,
-    fluxGroupKeyUnion
+    validFillColumns
   )
 }
 
