@@ -84,6 +84,7 @@ export const getVisTable = (
 ): {table: Table; fluxGroupKeyUnion: string[]} => {
   const files = getActiveTimeMachine(state).queryResults.files || []
   const {table, fluxGroupKeyUnion} = getVisTableMemoized(files.join('\n\n'))
+
   return {table, fluxGroupKeyUnion}
 }
 
@@ -106,6 +107,7 @@ const getGroupableColumnsMemoized = memoizeOne(getGroupableColumnsUtil)
 
 export const getGroupableColumns = (state: AppState): string[] => {
   const {table} = getVisTable(state)
+
   return getGroupableColumnsMemoized(table)
 }
 
@@ -159,6 +161,7 @@ const getSymbolColumnsSelectionMemoized = memoizeOne(
 
 export const getFillColumnsSelection = (state: AppState): string[] => {
   const validFillColumns = getGroupableColumns(state)
+
   const preference = get(
     getActiveTimeMachine(state),
     'view.properties.fillColumns'

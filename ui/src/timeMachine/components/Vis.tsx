@@ -70,6 +70,7 @@ const TimeMachineVis: SFC<Props> = ({
   const timeMachineViewClassName = classnames('time-machine--view', {
     'time-machine--view__empty': noQueries,
   })
+
   return (
     <div className={timeMachineViewClassName}>
       <ErrorBoundary>
@@ -146,6 +147,7 @@ const mstp = (state: AppState) => {
   const symbolColumns = getSymbolColumnsSelection(state)
 
   const timeZone = getTimeZone(state)
+
   return {
     loading,
     checkType,

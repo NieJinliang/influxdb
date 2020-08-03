@@ -66,6 +66,7 @@ class RefreshingView extends PureComponent<Props, State> {
   public render() {
     const {ranges, properties, manualRefresh, timeZone, theme} = this.props
     const {submitToken} = this.state
+
     return (
       <TimeSeries
         submitToken={submitToken}
