@@ -44,7 +44,7 @@ import ColumnSelector from 'src/shared/components/ColumnSelector'
 interface OwnProps {
   xColumn: string
   yColumn: string
-  fillColumn: string
+  fillColumns: string
   xDomain: number[]
   yDomain: number[]
   xAxisLabel: string
