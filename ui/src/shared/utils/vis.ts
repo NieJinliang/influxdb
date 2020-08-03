@@ -304,10 +304,10 @@ export const defaultYColumn = (
 export const mosaicYcolumn = (
   table: Table,
   preferredColumnKey?: string
-): string[] | null => {
+): string | null => {
   const validColumnKeys = getStringColumns(table)
   if (validColumnKeys.includes(preferredColumnKey)) {
-    return [preferredColumnKey]
+    return preferredColumnKey
   }
 
   const invalidMosaicYColumns = new Set([
@@ -320,11 +320,11 @@ export const mosaicYcolumn = (
     name => !invalidMosaicYColumns.has(name)
   )
   if (preferredValidColumnKeys.length) {
-    return [preferredValidColumnKeys[0]]
+    return preferredValidColumnKeys[0]
   }
 
   if (validColumnKeys.length) {
-    return [validColumnKeys[0]]
+    return validColumnKeys[0]
   }
   return null
 }
