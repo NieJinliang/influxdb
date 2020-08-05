@@ -498,5 +498,13 @@ func validBucketName(bucket *influxdb.Bucket) error {
 			Msg:  fmt.Sprintf("bucket name %s is invalid. Buckets may not start with underscore", bucket.Name),
 		}
 	}
+	// special characters are not permitted
+	// if strings.ContainsAny(bucket.Name, "\"?") {
+	// 	return &influxdb.Error{
+	// 		Code: influxdb.EInvalid,
+	// 		Op:   "http/bucket",
+	// 		Msg:  fmt.Sprintf("bucket name %s is invalid. Bucket names may not include special characters", bucket.Name),
+	// 	}
+	// }
 	return nil
 }
